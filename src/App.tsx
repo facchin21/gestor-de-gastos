@@ -1,10 +1,16 @@
+import { AppRouter } from './routes/AppRouter';
 function App() {
 
 
   return (
-    <>
-      <h1>Tu gasto</h1>
-    </>
+    <div>
+    <header>
+        
+    </header>
+    <main>
+      <AppRouter />
+    </main>
+  </div>
   )
 }
 
