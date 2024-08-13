@@ -1,15 +1,14 @@
+import { Navbar } from './components/Navbar';
 import { AppRouter } from './routes/AppRouter';
 function App() {
 
-
+const title = 'Tu Gasto'
   return (
     <div>
-    <header>
-        
-    </header>
-    <main>
-      <AppRouter />
-    </main>
+      <Navbar title={title}/>
+    <>
+      <AppRouter/>
+    </>
   </div>
   )
 }

@@ -1,7 +1,9 @@
+import { Banner } from "../components/Banner";
+
 export function Home () {
     return(
-        <>
-            <h1>PAGINA DE HOME</h1>
-        </>
+        <div className="bg-primary py-12">
+            <Banner/>
+        </div>
     )
 }

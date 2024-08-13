@@ -2,3 +2,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Ajustes de la linea roja de fondo */
+.highlight--gastos,
+.highlight--innecesarios{
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+}
+.highlight--gastos::before,
+.highlight--innecesarios::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./assets/images/red_highlight.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+.highlight--innecesarios::before{
+    background-image: url('./assets/images/red_highlight2 1.png');
+}
+.highlight--gastos::before,
+.highlight--innecesarios::before {
+    background-position: center;
+}

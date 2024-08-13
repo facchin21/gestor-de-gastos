@@ -9,7 +9,7 @@ export default {
       colors: {
         "primary" : '#E1ECC8',
         "secondary" : '#38A37F',
-        "oscuro" : '#000000',
+        "dark" : '#000000',
 
       },
       fontFamily : {
