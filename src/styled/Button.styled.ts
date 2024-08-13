@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 interface ButtonProps {
     primary?: boolean;
   }
 
-export const Button = styled.button<ButtonProps>`
+export const Button = styled(Link)<ButtonProps>`
     background-color: #38A37F;
     color: white;
     border: none;

@@ -19,10 +19,10 @@ export function Banner() {
                 </p>
                 <div className='flex w-full justify-center items-center
                 gap-6'>
-                    <Button >
+                    <Button to='/register'>
                         Registrarte
                     </Button>
-                    <Button >
+                    <Button to='/login'>
                         Iniciar sesion
                     </Button>
                 </div>
