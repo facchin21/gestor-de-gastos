@@ -31,3 +31,15 @@
 .highlight--innecesarios::before {
     background-position: center;
 }
+/* Imagen de Tick */
+.image__tick{
+    position: absolute;
+    top: -35%;
+    right: 8%;
+    z-index: 1;
+}
+/* Girando imagen de flecha */
+.arrow-right {
+    transform: rotate(90deg);
+    margin-left: 1rem; /* Ajusta según necesites */
+}

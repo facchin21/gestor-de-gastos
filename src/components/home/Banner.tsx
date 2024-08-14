@@ -5,7 +5,7 @@ export function Banner() {
     Decile adiós a tus gastos innecesarios.`;
 
     return (
-         <div className='w-full text-center relative p-8 bg-light-green'>
+         <div className='w-full text-center relative px-8 py-16 bg-light-green'>
             <div className='relative inline-block'>
                 <h1 className='font-Caveat text-6xl relative'>
                     Elimina tus <span className='highlight--gastos'> 
@@ -18,7 +18,7 @@ export function Banner() {
                     {description}
                 </p>
                 <div className='flex w-full justify-center items-center
-                gap-6'>
+                gap-6 py-8'>
                     <Button to='/register'>
                         Registrarte
                     </Button>

@@ -1,7 +1,7 @@
 import {Route, Routes } from "react-router-dom"
 import { Home } from "../pages/HomePage"
 import { NotFound } from "../pages/NotFoundPage"
-import { Login } from "../pages/Loginpage"
+import { Login } from "../pages/LoginPage"
 import { Register } from "../pages/RegisterPage"
 import { Perfil } from "../pages/PerfilPage"
 import { Descargar } from "../components/Descargar"
