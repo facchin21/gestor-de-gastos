@@ -1,4 +1,4 @@
-import { Button } from '../styled/Button.styled';
+import { Button } from '../../styled/Button.styled';
 
 export function Banner() {
     const description = `Tu gasto mantiene todo organizado. 

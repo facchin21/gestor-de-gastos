@@ -1,13 +1,13 @@
 import {Route, Routes } from "react-router-dom"
-import { Home } from "../pages/Home"
-import { NotFound } from "../pages/NotFound"
-import { Login } from "../pages/Login"
-import { Register } from "../pages/Register"
-import { Perfil } from "../pages/Perfil"
+import { Home } from "../pages/HomePage"
+import { NotFound } from "../pages/NotFoundPage"
+import { Login } from "../pages/Loginpage"
+import { Register } from "../pages/RegisterPage"
+import { Perfil } from "../pages/PerfilPage"
 import { Descargar } from "../components/Descargar"
-import { Gastos } from "../pages/Gastos"
-import { Ingresos } from "../pages/Ingresos"
-import { Ahorros } from "../pages/Ahorros"
+import { Gastos } from "../pages/GastosPage"
+import { Ingresos } from "../pages/IngresosPage"
+import { Ahorros } from "../pages/AhorrosPage"
 
 export const AppRouter : React.FC = () => {
     return (
