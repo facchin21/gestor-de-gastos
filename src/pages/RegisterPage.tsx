@@ -4,6 +4,7 @@ import { ContainerForm, Input, Label } from "../styled/Froms.styled";
 import { Title } from '../styled/Title.styled';
 import { Toaster } from 'react-hot-toast';
 import { Error } from '../styled/Error.styled'
+import { ButtonSeccion } from '../styled/ButtonSeccion'
 
 export const Register = () => {
   const { register, handleSubmit, onSubmit, onError, errors } = useRegister()
@@ -65,13 +66,10 @@ export const Register = () => {
             <Error>{errors.password.message}</Error>}
           </ContainerForm>
 
-          <button
-            type="submit"
-            className="bg-primary py-4 w-full rounded-lg text-lg font-Inter font-bold text-secondary 
-            transition-all duration-700 hover:bg-white mt-4"
-          >
+          <ButtonSeccion
+            type="submit">
             Registrarme
-          </button>
+          </ButtonSeccion>
         </form>
 
         <Toaster />
