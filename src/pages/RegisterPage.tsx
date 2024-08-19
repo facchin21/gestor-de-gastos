@@ -10,7 +10,7 @@ export const Register = () => {
   const { register, handleSubmit, onSubmit, onError, errors } = useRegister()
 
   return (
-    <div className="bg-primary py-16 flex items-center justify-center">
+    <div className="bg-primary px-8 py-16 flex items-center justify-center">
       <Container>
         <Title colors="#E1ECC8">Crear tu cuenta</Title>
         <form onSubmit={handleSubmit(onSubmit, onError)} className="py-6">
