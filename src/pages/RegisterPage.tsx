@@ -67,7 +67,7 @@ export const Register = () => {
           </ContainerForm>
 
           <ButtonSeccion
-            type="submit">
+            to="/">
             Registrarme
           </ButtonSeccion>
         </form>

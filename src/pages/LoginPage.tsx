@@ -2,6 +2,7 @@ import { Container } from '../styled/Container.styled';
 import { Title } from '../styled/Title.styled';
 import { Input, Label } from '../styled/Froms.styled';
 import { Link } from 'react-router-dom';
+import { ButtonSeccion } from '../styled/ButtonSeccion';
 export const Login = () => {
   return (
     <div className="bg-primary px-8 py-16 flex items-center justify-center">
@@ -22,6 +23,7 @@ export const Login = () => {
                     Recuperar Contraseña
                   </Link>
                 </div>
+                <ButtonSeccion to="/">Iniciar sesion</ButtonSeccion>
               </div>
           </Container>
     </div>
