@@ -8,6 +8,7 @@ import { Descargar } from "../components/Descargar"
 import { Gastos } from "../pages/GastosPage"
 import { Ingresos } from "../pages/IngresosPage"
 import { Ahorros } from "../pages/AhorrosPage"
+import { RecuperarPage } from "../pages/RecuperarPage"
 
 export const AppRouter : React.FC = () => {
     return (
@@ -21,6 +22,7 @@ export const AppRouter : React.FC = () => {
             <Route path="/gastos" element={<Gastos/>}/>
             <Route path="/ingresos" element={<Ingresos/>}/>
             <Route path="/metasdeahorro" element={<Ahorros/>}/>
+            <Route path="/recuperar" element={<RecuperarPage/>}/>
         </Routes>
     )
 }
