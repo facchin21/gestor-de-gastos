@@ -1,35 +1,13 @@
 import { useState, useEffect } from 'react';
 
-interface AuthState {
-  isAuthenticated: boolean;
-  user: { id: string; name: string } | null;
-}
-
 export const useAuth = () => {
-  const [authState, setAuthState] = useState<AuthState>({
-    isAuthenticated: false,
-    user: null,
-  });
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
   useEffect(() => {
-    // Recuperar el token y los datos del usuario desde localStorage
+    // Verificar si el token de autenticación está en el almacenamiento local
     const token = localStorage.getItem('tuGastoAuthToken');
-    const userJson = localStorage.getItem('tuGastoUser');
-
-    // Verificar si el token existe y los datos del usuario son válidos
-    const isAuthenticated = !!token;
-    let user = null;
-    
-    if (userJson) {
-      try {
-        user = JSON.parse(userJson);
-      } catch (error) {
-        console.error('Error al analizar los datos del usuario:', error);
-      }
-    }
-
-    setAuthState({ isAuthenticated, user });
+    setIsAuthenticated(!!token);
   }, []);
 
-  return authState;
+  return { isAuthenticated };
 };

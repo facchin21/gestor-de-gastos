@@ -8,7 +8,7 @@ export const itemsNavbar: NavbarItem[] = [
   {
     id: '01',
     name: 'inicio',
-    link: '',
+    link: 'home',
   },
   {
     id: '02',

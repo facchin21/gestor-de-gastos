@@ -3,6 +3,8 @@ import imageLogo from '../assets/images/logo.png'
 import iconMenu from '../assets/images/menu.png'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
+import { ButtonSeccion } from '../styled/ButtonSeccion';
+import { useLogout } from '../hooks/useLogout';
 
 interface NavbarProps {
     title: string;
@@ -11,6 +13,7 @@ interface NavbarProps {
 export function Navbar({ title }: NavbarProps) {
     
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const {handleLogout} = useLogout()
   
     const handleClick = () => {
       setIsMenuOpen(prevState => !prevState); 
@@ -54,6 +57,9 @@ export function Navbar({ title }: NavbarProps) {
                         </Link>
                     </li>
                 ))}
+                <ButtonSeccion type='submit' onClick={handleLogout}>
+                    Cerrar Sesion
+                </ButtonSeccion>
             </ul>
             </div>
       </nav>

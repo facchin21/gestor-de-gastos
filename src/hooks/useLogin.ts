@@ -12,7 +12,6 @@ export const useLogin = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<LoginFormData>();
   const navigate = useNavigate();
   const setAuthenticated = useAuthStore((state) => state.setAuthenticated);
-  const setUser = useAuthStore((state) => state.setUser);
 
   const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
     try {
@@ -31,14 +30,16 @@ export const useLogin = () => {
       }
 
       const result = await response.json();
-      localStorage.setItem('tuGastoAuthToken', result.token); // Guarda el token
-      localStorage.setItem('tuGastoUser', JSON.stringify(result.user)); // Guarda los datos del usuario
+      if (result.token) {
+        localStorage.setItem('tuGastoAuthToken', result.token); // Guarda el token
 
-      setAuthenticated(true);
-      setUser(result.user);
+        setAuthenticated(true); // Marca al usuario como autenticado
 
-      toast.success('¡Inicio de sesión exitoso!');
-      navigate('/home'); // Redirige al usuario a la página de inicio
+        toast.success('¡Inicio de sesión exitoso!');
+        navigate('/home'); // Redirige al usuario a la página de inicio
+      } else {
+        toast.error('Respuesta inesperada del servidor.');
+      }
     } catch (error) {
       toast.error(`Error al iniciar sesión: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
