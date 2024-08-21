@@ -1,5 +1,6 @@
 import { FieldErrors, SubmitHandler, useForm, UseFormHandleSubmit, UseFormRegister } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 interface RegisterFormData {
     name: string;
@@ -15,36 +16,42 @@ interface UseRegisterReturn {
     onError: (errors: FieldErrors<RegisterFormData>) => void;
     errors: FieldErrors<RegisterFormData>;
 }
-export function useRegister (): UseRegisterReturn {
 
+export function useRegister(): UseRegisterReturn {
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm<RegisterFormData>();
 
     const onSubmit: SubmitHandler<RegisterFormData> = async (data) => {
-      try {
-        const response = await fetch('/user/new', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        });
-  
-        if (!response.ok) {
-          const errorMessage = await response.text(); // Obtener mensaje de error si está disponible
-          throw new Error(`Error en el registro: ${errorMessage}`);
+        try {
+            const response = await fetch('/user/new', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                const errorMessage = await response.text();
+                throw new Error(`Error en el registro: ${errorMessage}`);
+            }
+
+            const result = await response.json();
+            toast.success('¡Registro exitoso!');
+            console.log("El resultado de la respuesta es", result);
+
+            // Redirigir al usuario con un retraso de 300 ms
+            setTimeout(() => {
+             navigate('/home');
+            }, 100);
+        } catch (error: unknown) {
+            toast.error(`Error al crear el usuario`);
         }
-  
-        const result = await response.json();
-        console.log("El resultado de la respuesta es", result);
-        toast.success('¡Registro exitoso!');
-      } catch (error) {
-        toast.error(`Error al crear el usuario: ${error.message}`);
-      }
-    };
-    
-    const onError = (errors: FieldErrors<RegisterFormData>) => {
-        toast.error(errors ? 'Complete todos los campos por favor!' : '');
     };
 
-    return { register, handleSubmit, onSubmit, onError, errors }
+    const onError = (errors: FieldErrors<RegisterFormData>) => {
+        toast.error(errors ? '¡Complete todos los campos por favor!' : '');
+    };
+
+    return { register, handleSubmit, onSubmit, onError, errors };
 }

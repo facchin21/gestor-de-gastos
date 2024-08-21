@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const ButtonSeccion = styled(Link)`
+export const ButtonSeccion = styled.button`
     font-family: "Inter";
     line-height: 1.75rem;
     font-size: 1.125rem;
