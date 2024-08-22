@@ -4,16 +4,17 @@ import { Title } from '../../styled/Title.styled';
 
 interface ArticleHomeProps {
     title: string;
-    image: string;
+    image?: string;
     isArrowOnRight?: boolean;
+    fontSize?: string;
 }
 
-export function ArticleHome({ title, image, isArrowOnRight  }: ArticleHomeProps) {
+export function ArticleHome({ title, image, isArrowOnRight, fontSize  }: ArticleHomeProps) {
     return (
         <div className='py-20'>
             <header className="relative">
                 <div className="relative">
-                    <Title>
+                    <Title fontSize={fontSize}>
                         {title}
                     </Title>
                     <img
@@ -22,15 +23,17 @@ export function ArticleHome({ title, image, isArrowOnRight  }: ArticleHomeProps)
                         className="image__tick" />
                 </div>
             </header>
-            <div className='flex flex-col items-center justify-center'>
-                <img
-                    src={imageArrow}
-                    alt="Imagen de Flecha"
-                    className={`transition-transform ${isArrowOnRight ? 
-                        'rotate-90 -mr-40' : '-ml-40'}`}
-                />
-                <img src={image} alt={`Imagen portada de ${title}`} />
-            </div>
+                <div className='flex flex-col items-center justify-center'>
+                    <img
+                        src={imageArrow}
+                        alt="Imagen de Flecha"
+                        className={`transition-transform ${isArrowOnRight ? 
+                            'rotate-90 -mr-40' : '-ml-40'}`}
+                            /> 
+                    {image && 
+                        <img src={image} alt={`Imagen portada de ${title}`} />
+                    }
+                </div>
         </div>
     )
 }

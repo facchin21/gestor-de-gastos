@@ -9,6 +9,6 @@ export const Title = styled.h1<TitleProps>`
     font-family : 'Caveat';
     font-weight: bold;
     text-align: center;
-    font-size: ${props => props.fontSize || '3.2rem'};
+    font-size: ${props => props.fontSize || '3.3rem'};
     color : ${props => props.colors || "#000000"};
 `
