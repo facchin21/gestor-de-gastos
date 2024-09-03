@@ -20,3 +20,19 @@ export const Button = styled(Link)<ButtonProps>`
         background-color: #5a6268;
     }
 `
+
+export const Buttons = styled.button`
+    background-color: #38A37F;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family : 'Inter';
+    cursor: pointer;
+    transition: all 800ms ease;
+
+    &:hover {
+        background-color: #5a6268;
+    }
+`

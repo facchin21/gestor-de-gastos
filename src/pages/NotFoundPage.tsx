@@ -8,7 +8,7 @@ export function NotFound () {
                 Error
             </Title>
             <h3 className="py-5 text-center font-Inter">Pagina no encontrada</h3>
-            <Button to='/'>
+            <Button to='/home'>
                 Volver al inicio
             </Button>
         </div>

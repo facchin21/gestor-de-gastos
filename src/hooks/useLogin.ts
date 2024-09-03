@@ -30,8 +30,11 @@ export const useLogin = () => {
       }
 
       const result = await response.json();
+
       if (result.token) {
-        localStorage.setItem('tuGastoAuthToken', result.token); // Guarda el token
+        // Guardar el token en localStorage 
+        const formattedToken = `Bearer ${result.token}`;
+        localStorage.setItem('token', formattedToken);
 
         setAuthenticated(true); // Marca al usuario como autenticado
 
@@ -39,6 +42,7 @@ export const useLogin = () => {
         navigate('/home'); // Redirige al usuario a la página de inicio
       } else {
         toast.error('Respuesta inesperada del servidor.');
+        console.error("El token no se encuentra en la respuesta del servidor.");
       }
     } catch (error) {
       toast.error(`Error al iniciar sesión: ${error instanceof Error ? error.message : 'Error desconocido'}`);

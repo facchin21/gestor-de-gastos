@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { ButtonSeccion } from '../styled/ButtonSeccion';
 import { useLogin } from '../hooks/useLogin';
 import { Error } from '../styled/Error.styled';
+import { Toaster } from 'react-hot-toast';
 
 export const Login = () => {
   const { register, handleSubmit, onSubmit, errors } = useLogin();
@@ -43,6 +44,7 @@ export const Login = () => {
             <ButtonSeccion type='submit'>Iniciar sesión</ButtonSeccion>
           </form>
         </Container>
+        <Toaster />
     </div>
   );
 };

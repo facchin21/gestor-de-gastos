@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-
 export function useText (text : string) {
   const [displayedText, setDisplayedText] = useState('');
   const [index, setIndex] = useState(0);

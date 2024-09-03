@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
-
 interface CategoryProps {
     text?: string;
     color?: string;
-    bgColor?: string;
+    bgcolor?: string;
 }
 
 export const CategoryStyled = styled.div<CategoryProps>`
@@ -18,13 +17,13 @@ export const CategoryStyled = styled.div<CategoryProps>`
     justify-content: center;
     border-radius: 5px;
     padding: 5px 10px;
-    background-color: ${(props) => props.color || 'none'};
-    color : ${(props) => props.bgColor || 'black'}
+    background-color: ${(props) => props.bgcolor || 'none'};
+    color: ${(props) => props.color || 'black'};
 `;
 
-export const Category = ({ text, color, bgColor }: CategoryProps) => {
+export const Category = ({ text, color, bgcolor }: CategoryProps) => {
     return (
-        <CategoryStyled color={color} bgColor={bgColor}>
+        <CategoryStyled color={color} bgcolor={bgcolor}>
             {text}
         </CategoryStyled>
     );

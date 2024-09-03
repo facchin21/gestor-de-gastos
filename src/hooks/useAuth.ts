@@ -5,7 +5,7 @@ export const useAuth = () => {
 
   useEffect(() => {
     // Verificar si el token de autenticación está en el almacenamiento local
-    const token = localStorage.getItem('tuGastoAuthToken');
+    const token = localStorage.getItem('token');
     setIsAuthenticated(!!token);
   }, []);
 

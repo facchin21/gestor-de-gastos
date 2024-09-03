@@ -1,8 +1,15 @@
-import { Category } from "../styled/Category.styled";
+import { Category } from '../styled/Category.styled';
 import { Table, TBody, Th, Thead, Tr, Td } from '../styled/Table.styled';
 import { FaTrashAlt, FaMinusCircle } from 'react-icons/fa';
 
-export const TableDefault = () => {
+interface tableProps{
+    description : string;
+    price : number;
+    category : string;
+    date : string;
+}
+
+export const TableDefault = ({description, price, category, date} : tableProps) => {
     return(
         <Table>
                 <Thead>
@@ -17,16 +24,16 @@ export const TableDefault = () => {
                 <TBody>
                     <Tr>
                         <Td>
-                            Chocolate
+                            {description}
                         </Td>
                         <Td>
-                            $1365
+                            ${price}
                         </Td>
                         <Td>
-                            <Category text={'kiosco'} color="#11e2" bgColor="black"/>
+                            <Category text={category} color="white" bgcolor="black" />
                         </Td>
                         <Td>
-                            21-11-2001
+                            {date}
                         </Td>
                         <Td>
                             <div className="flex gap-2 items-center justify-center">
