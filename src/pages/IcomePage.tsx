@@ -1,6 +1,6 @@
 
 
-export const Ingresos = () => {
+export const IncomePage = () => {
   return (
     <div>Ingresos</div>
   )

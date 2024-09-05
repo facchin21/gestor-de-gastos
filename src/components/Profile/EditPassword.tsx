@@ -3,7 +3,7 @@ import { useUser } from "../../hooks/useUser";
 import { useState } from "react";
 import { ContainerForm, Input, Label } from "../../styled/Froms.styled";
 import { Buttons } from '../../styled/Button.styled';
-import { ButtonSeccion } from "../../styled/ButtonSeccion";
+import { ButtonSeccion } from "../../styled/Button.styled";
 import toast, { Toaster } from "react-hot-toast";
 
 

@@ -4,7 +4,7 @@ import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
 import { useUser } from '../../hooks/useUser'
 
-export const PerfilImage = () => {
+export const ProfileImage = () => {
     const { user } = useUser()
     const { image, setImage } = useImageStore()
     const [editing, setEditing] = useState<boolean>(false)
@@ -41,7 +41,7 @@ export const PerfilImage = () => {
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-0">
                         <button
                             onClick={() => setEditing(true)}
-                            className="bg-gray-400 text-white p-2 rounded-full text-xl w-full h-full">
+                            className="bg-gray-400 bg-opacity-55 text-white p-2 rounded-full text-xl w-full h-full font-semibold">
                             Change Image
                         </button>
                     </div>

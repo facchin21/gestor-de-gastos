@@ -1,10 +1,10 @@
 import { Container } from '../styled/Container.styled';
-import { Title } from '../styled/Title.styled';
+import { Title } from '../styled/Container.styled';
 import { Input, Label } from '../styled/Froms.styled';
 import { Link } from 'react-router-dom';
-import { ButtonSeccion } from '../styled/ButtonSeccion';
+import { ButtonSeccion } from '../styled/Button.styled';
 import { useLogin } from '../hooks/useLogin';
-import { Error } from '../styled/Error.styled';
+import { Error } from '../styled/Container.styled';
 import { Toaster } from 'react-hot-toast';
 
 export const Login = () => {

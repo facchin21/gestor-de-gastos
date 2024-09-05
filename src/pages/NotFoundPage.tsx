@@ -1,5 +1,5 @@
 import { Button } from "../styled/Button.styled";
-import { Title } from '../styled/Title.styled';
+import { Title } from '../styled/Container.styled';
 
 export function NotFound () {
     return(

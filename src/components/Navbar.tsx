@@ -1,6 +1,6 @@
 import { ModalOverlay, ModalContainer, ModalHeader, ModalTitle, ModalBody, ModalFooter, ModalButton} from '../styled/Modal.styled';
 import { itemsNavbar, NavbarItem } from '../data/itemsNavbar'
-import { ButtonSeccion } from '../styled/ButtonSeccion';
+import { ButtonSeccion } from '../styled/Button.styled';
 import imageLogo from '../assets/images/logo.png'
 import iconMenu from '../assets/images/menu.png'
 import { useLogout } from '../hooks/useLogout';

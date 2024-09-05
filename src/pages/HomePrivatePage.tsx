@@ -1,5 +1,5 @@
 import { useText } from "../hooks/useText";
-import { Title } from "../styled/Title.styled";
+import { Title } from "../styled/Container.styled";
 import { TableDefault } from "../components/TableDefault";
 import { ArticleHome } from "../components/home/ArticleHome";
 import { useUser } from "../hooks/useUser";

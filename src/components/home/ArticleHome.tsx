@@ -1,6 +1,6 @@
 import imageTick from '../../assets/images/tick .png'
 import imageArrow from '../../assets/images/arrow.png'
-import { Title } from '../../styled/Title.styled';
+import { Title } from '../../styled/Container.styled';
 
 interface ArticleHomeProps {
     title: string;

@@ -1,4 +1,4 @@
-import { Title } from "../../styled/Title.styled";
+import { Title } from "../../styled/Container.styled";
 import imageCircle from '../../assets/images/circle.png'
 import { Button } from "../../styled/Button.styled";
 

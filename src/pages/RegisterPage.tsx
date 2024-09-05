@@ -1,10 +1,10 @@
 import { useRegister } from "../hooks/useRegister";
 import { Container } from "../styled/Container.styled";
 import { ContainerForm, Input, Label } from "../styled/Froms.styled";
-import { Title } from '../styled/Title.styled';
+import { Title } from '../styled/Container.styled';
 import { Toaster } from 'react-hot-toast';
-import { Error } from '../styled/Error.styled'
-import { ButtonSeccion } from '../styled/ButtonSeccion'
+import { Error } from '../styled/Container.styled'
+import { ButtonSeccion } from '../styled/Button.styled'
 
 export const Register = () => {
   const { register, handleSubmit, onSubmit, onError, errors } = useRegister()
