@@ -1,13 +1,15 @@
-import React from 'react';
-import { Title } from "../styled/Container.styled";
-import imageCircle from '../assets/images/circle.png';
-import { AddEditCategory, Category } from "../styled/Category.styled";
+import { useState, useRef, useEffect } from 'react';
+import Picker from '@emoji-mart/react';
+import data from '@emoji-mart/data';
+import { ModalButton, ModalFooter, ModalBody, ModalContainer, ModalOverlay, ModalTitle, ModalHeader, Input, SelectStyled } from '../styled/Modal.styled';
 import { FaMinusCircle, FaPlusCircle, FaPencilAlt } from 'react-icons/fa';
-import { Buttons } from "../styled/Button.styled";
-import { TableDefault } from "../components/TableDefault";
-import { ModalButton, ModalFooter, ModalBody, ModalContainer, ModalOverlay, ModalTitle, ModalHeader } from '../styled/Modal.styled';
-import { useGetExpense, useAddExpense } from "../hooks/useExpense";
+import { AddEditCategory, Category } from "../styled/Category.styled";
 import { useGetCategory, useAddCategory } from "../hooks/useCategory";
+import { useGetExpense, useAddExpense } from "../hooks/useExpense";
+import { TableDefault } from "../components/TableDefault";
+import imageCircle from '../assets/images/circle.png';
+import { Title } from "../styled/Container.styled";
+import { Buttons } from "../styled/Button.styled";
 
 export const ExpensePage = () => {
   const { expense: expenses } = useGetExpense();
@@ -30,6 +32,29 @@ export const ExpensePage = () => {
     loading: loadingCategory
   } = useAddCategory();
 
+  const [editing, setEditing] = useState<boolean>(false);
+  const [showEmojiPicker, setShowEmojiPicker] = useState<boolean>(false);
+  const emojiButtonRef = useRef<HTMLButtonElement>(null);
+
+  const handleEmojiSelect = (emoji: { native: string }) => {
+    setEditing(false);
+    handleChangeCategory({ target: { name: 'emoji', value: emoji.native } });
+    setShowEmojiPicker(false);
+  };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (emojiButtonRef.current && !emojiButtonRef.current.contains(event.target as Node)) {
+      setShowEmojiPicker(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="bg-primary">
       <header className="relative">
@@ -39,8 +64,8 @@ export const ExpensePage = () => {
       <div className="flex items-center justify-center gap-3 py-4">
         <AddEditCategory
           icon={FaPlusCircle}
-          text={'Agregar Categoría'}
-          bgcolor={'#38A37F'}
+          text="Agregar Categoría"
+          bgcolor="#38A37F"
           color="#E1ECC8"
           cursor="pointer"
           bgHover="#3244d3"
@@ -48,16 +73,16 @@ export const ExpensePage = () => {
         />
         <AddEditCategory
           icon={FaMinusCircle}
-          text={'Eliminar Categoría'}
-          bgcolor={'#FC787D'}
+          text="Eliminar Categoría"
+          bgcolor="#FC787D"
           color="#E1ECC8"
           cursor="pointer"
           bgHover="#FC8d2f"
         />
         <AddEditCategory
           icon={FaPencilAlt}
-          text={'Editar Categoría'}
-          bgcolor={'#93BEB0'}
+          text="Editar Categoría"
+          bgcolor="#93BEB0"
           color="#E1ECC8"
           cursor="pointer"
           bgHover="#96BE2e"
@@ -71,7 +96,7 @@ export const ExpensePage = () => {
           ) : categoryError ? (
             <p>Hubo un problema al cargar las categorías: {categoryError}</p>
           ) : categories.length > 0 ? (
-            categories.map((category) => (
+            categories.map(category => (
               <Category
                 key={category.id}
                 text={category.name}
@@ -108,9 +133,9 @@ export const ExpensePage = () => {
             </ModalHeader>
             <ModalBody>
               <form onSubmit={handleSubmitExpense}>
-                <div>
+                <div className="py-1">
                   <label htmlFor="price" className="block text-white">Precio:</label>
-                  <input
+                  <Input
                     type="number"
                     id="price"
                     name="price"
@@ -120,9 +145,9 @@ export const ExpensePage = () => {
                     required
                   />
                 </div>
-                <div>
+                <div className="py-1">
                   <label htmlFor="date" className="block text-white">Fecha:</label>
-                  <input
+                  <Input
                     type="date"
                     id="date"
                     name="date"
@@ -132,9 +157,9 @@ export const ExpensePage = () => {
                     required
                   />
                 </div>
-                <div>
+                <div className="py-1">
                   <label htmlFor="description" className="block text-white">Descripción:</label>
-                  <input
+                  <Input
                     type="text"
                     id="description"
                     name="description"
@@ -144,9 +169,9 @@ export const ExpensePage = () => {
                     required
                   />
                 </div>
-                <div>
+                <div className="py-1">
                   <label htmlFor="category" className="block text-white">Categoría:</label>
-                  <select
+                  <SelectStyled
                     id="category"
                     name="category"
                     value={formDataExpense.category}
@@ -154,17 +179,17 @@ export const ExpensePage = () => {
                     className="p-2 rounded"
                     required
                   >
-                    <option value="">Seleccionar categoría</option>
+                    <option value="" className='text-black'>Seleccionar categoría</option>
                     {categories.length > 0 ? (
-                      categories.map((category) => (
-                        <option key={category.id} value={category.id}>
+                      categories.map(category => (
+                        <option key={category.id} value={category.id} className='text-black'>
                           {category.name}
                         </option>
                       ))
                     ) : (
                       <option value="" disabled>No hay categorías cargadas!</option>
                     )}
-                  </select>
+                  </SelectStyled>
                 </div>
                 <ModalFooter>
                   <ModalButton type="submit" className="confirm" disabled={loadingExpense}>
@@ -188,37 +213,42 @@ export const ExpensePage = () => {
             </ModalHeader>
             <ModalBody>
               <form onSubmit={handleSubmitCategory}>
-                <div>
-                  <label htmlFor="name" className="block text-white">Nombre:</label>
-                  <input
+                <div className="py-1">
+                  <label htmlFor="name" className="block text-primary">Nombre:</label>
+                  <Input
                     type="text"
                     id="name"
                     name="name"
                     value={formDataCategory.name}
                     onChange={handleChangeCategory}
-                    className="p-2 rounded"
                     required
                   />
                 </div>
-                <div>
-                  <label htmlFor="color" className="block text-white">Color:</label>
-                  <input
-                    type="text"
+                <div className="py-1">
+                  <label htmlFor="emoji" className="block text-primary">Emoji:</label>
+                  <div className="relative">
+                    <button
+                      type="button"
+                      ref={emojiButtonRef}
+                      onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+                      className="p-2 bg-gray-200 rounded"
+                    >
+                      {formDataCategory.emoji || "Seleccionar emoji"}
+                    </button>
+                    {showEmojiPicker && (
+                      <div className="absolute z-10">
+                        <Picker data={data} onEmojiSelect={handleEmojiSelect} />
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="py-1">
+                  <label htmlFor="color" className="block text-primary">Color:</label>
+                  <Input
+                    type="color"
                     id="color"
                     name="color"
                     value={formDataCategory.color}
-                    onChange={handleChangeCategory}
-                    className="p-2 rounded"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="emoji" className="block text-white">Emoji:</label>
-                  <input
-                    type="text"
-                    id="emoji"
-                    name="emoji"
-                    value={formDataCategory.emoji}
                     onChange={handleChangeCategory}
                     className="p-2 rounded"
                     required

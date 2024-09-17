@@ -68,3 +68,23 @@ export const ModalButton = styled.button`
     color: black;
   }
 `;
+
+export const Input = styled.input`
+  background: none;
+  padding : 5px 10px;
+  border-radius: 5px;
+  border: 2px solid #E1ECC8;
+  outline: none;
+  
+  &::placeholder{
+    color : #E1ECC8
+  }
+`
+
+export const SelectStyled = styled.select`
+  background : none;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid #e1ecc8;
+  color : white;
+`
